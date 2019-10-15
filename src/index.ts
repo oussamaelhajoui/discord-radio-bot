@@ -9,7 +9,7 @@ const config = {
 const client = new Discord.Client();
 
 // The token of your bot - https://discordapp.com/developers/applications/me
-const token = 'NjMzNDAwNzU1MTc2NDcyNTg1.XaTang.KAyeteEv69y3UKaQ_sa2flVqPAk';
+const token = 'NjMzNDAwNzU1MTc2NDcyNTg1.XaTrSw.tEhXnl0vH-GkYi54Cy7-xP6eakc';
 
 
 let voiceChannelState = false;
@@ -59,7 +59,7 @@ client.on('message', async message => {
     }
 });
 
-client.login(token);
+client.login(token).then(r => console.log('r',r) ).catch( r=>  console.log('r',r));
 
 function PruneCommand(message: Discord.Message , args: string[]) {
     if (message.member.roles.find("name", "Mod")) {
@@ -70,7 +70,7 @@ function PruneCommand(message: Discord.Message , args: string[]) {
                     message.channel.send(`:bomb: **Removing** ${amount}** ${amount > 1 ? 'messages' : 'message'}. (Self destruct in 5 seconds)**`)
                         .then((message:any) => {
                             message.delete(5000);
-                        })
+                        });
                     messages.forEach(message => {
                         message.delete();
                     });

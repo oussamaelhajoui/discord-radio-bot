@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const RadioCommand = function (message, args, voiceChannelState) {
-    if (args[0] == undefined)
+    if (args[0] === undefined)
         return;
     let streamURL = "";
     switch (args[0]) {
@@ -31,6 +31,7 @@ const RadioCommand = function (message, args, voiceChannelState) {
         if (message != null)
             message.channel.send(`:notes: Now playing ${args[0]}.`);
         dispatcher.on("end", end => {
+            console.log('ho')
         });
     })
         .catch(err => console.log(err));
